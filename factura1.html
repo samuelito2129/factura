@@ -126,14 +126,9 @@
                     // Verificar si el valor comienza con "!"
                     if (valor.startsWith("!")) {
                         const cleanValue = valor.slice(1); // Remover "!"
-                        elemento.innerHTML = `<span class="red">!</span>${cleanValue}`;
+                        elemento.innerHTML = `<span class="red">!</span>${parseFloat(cleanValue).toFixed(2)} Bs`;
                     } else {
-                        // Ajustar los valores numéricos a dos decimales
-                        if (!isNaN(valor) && campo.startsWith("imp_")) {
-                            elemento.innerHTML = parseFloat(valor).toFixed(2);
-                        } else {
-                            elemento.innerHTML = valor;
-                        }
+                        elemento.innerHTML = `${parseFloat(valor).toFixed(2)} Bs`;
                     }
                 }
             });
@@ -321,6 +316,6 @@
         </tr>
         
     </table>
-     <p style="font-size: 13px">Saldo Deudor: <strong id="saldo"><span>.00Bs.</span></strong></p>    
+     <p style="font-size: 13px">Saldo Deudor: <strong id="saldo"><span></span></strong></p>    
 </body>
 </html>
