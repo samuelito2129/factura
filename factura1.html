@@ -128,12 +128,16 @@
                         const cleanValue = valor.slice(1); // Remover "!"
                         elemento.innerHTML = `<span class="red">!</span>${cleanValue}`;
                     } else {
-                        // Ajustar valores numéricos
-                        const numValue = parseFloat(valor);
-                        if (!isNaN(numValue) && numValue !== 0) {
-                            elemento.innerHTML = numValue.toFixed(2) + " Bs";
+                        // Ajustar valores numéricos solo para tabla_3, tabla_4 y saldo
+                        if (campo.startsWith("imp_") || campo === "subtotal" || campo === "descuento" || campo === "recargo" || campo === "pagar" || campo === "saldo") {
+                            const numValue = parseFloat(valor);
+                            if (!isNaN(numValue) && numValue !== 0) {
+                                elemento.innerHTML = numValue.toFixed(2) + " Bs";
+                            } else {
+                                elemento.innerHTML = "";
+                            }
                         } else {
-                            elemento.innerHTML = "";
+                            elemento.innerHTML = valor;
                         }
                     }
                 }
