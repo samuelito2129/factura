@@ -128,7 +128,12 @@
                         const cleanValue = valor.slice(1); // Remover "!"
                         elemento.innerHTML = `<span class="red">!</span>${cleanValue}`;
                     } else {
-                        elemento.innerHTML = valor;
+                        // Ajustar los valores numéricos a dos decimales
+                        if (!isNaN(valor) && campo.startsWith("imp_")) {
+                            elemento.innerHTML = parseFloat(valor).toFixed(2);
+                        } else {
+                            elemento.innerHTML = valor;
+                        }
                     }
                 }
             });
