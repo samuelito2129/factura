@@ -116,7 +116,7 @@
                             "imp_agua", "cant_tamarindo", "imp_tamarindo","cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante", 
                             "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino", 
                             "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento", 
-                            "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo"];
+                            "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo","motivo"];
 
             // Rellenar los campos si existen en los parámetros de la URL
             campos.forEach(campo => {
@@ -142,6 +142,22 @@
                     }
                 }
             });
+
+            // Ocultar filas en tabla_3 si la cantidad es cero o está vacía
+            const filas = document.querySelectorAll('.tabla_3 tbody tr');
+            filas.forEach(fila => {
+                const cantidad = fila.querySelector('td:nth-child(2)').innerText;
+                if (!cantidad || parseFloat(cantidad) === 0) {
+                    fila.style.display = 'none';
+                }
+            });
+
+            // Ocultar <p> contenedor si el saldo es cero o está vacío
+            const saldoElemento = document.getElementById('saldo');
+            const saldoValor = saldoElemento.innerText;
+            if (!saldoValor || parseFloat(saldoValor) === 0) {
+                saldoElemento.parentElement.style.display = 'none';
+            }
         }
 
         window.onload = getQueryParams; // Ejecutar al cargar la página
@@ -326,6 +342,6 @@
         </tr>
         
     </table>
-     <p style="font-size: 13px">Saldo Deudor: <strong id="saldo"><span></span></strong></p>    
+     <p style="font-size: 13px">Saldo Deudor de:<span id="motivo"></span> <strong id="saldo"><span></span></strong></p>    
 </body>
 </html>
