@@ -144,10 +144,19 @@
             });
 
             // Ocultar filas en tabla_3 si la cantidad es cero o está vacía
-            const filas = document.querySelectorAll('.tabla_3 tbody tr');
-            filas.forEach(fila => {
+            const filasTabla3 = document.querySelectorAll('.tabla_3 tbody tr');
+            filasTabla3.forEach(fila => {
                 const cantidad = fila.querySelector('td:nth-child(2)').innerText;
                 if (!cantidad || parseFloat(cantidad) === 0) {
+                    fila.style.display = 'none';
+                }
+            });
+
+            // Ocultar filas en tabla_4 si la columna 4 está vacía o tiene valor cero
+            const filasTabla4 = document.querySelectorAll('.tabla_4 tbody tr');
+            filasTabla4.forEach(fila => {
+                const valorColumna4 = fila.querySelector('td:nth-child(4)').innerText;
+                if (!valorColumna4 || parseFloat(valorColumna4) === 0) {
                     fila.style.display = 'none';
                 }
             });
