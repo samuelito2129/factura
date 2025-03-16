@@ -126,9 +126,15 @@
                     // Verificar si el valor comienza con "!"
                     if (valor.startsWith("!")) {
                         const cleanValue = valor.slice(1); // Remover "!"
-                        elemento.innerHTML = `<span class="red">!</span>${parseFloat(cleanValue).toFixed(2)} Bs`;
+                        elemento.innerHTML = `<span class="red">!</span>${cleanValue}`;
                     } else {
-                        elemento.innerHTML = `${parseFloat(valor).toFixed(2)} Bs`;
+                        // Ajustar valores numéricos
+                        const numValue = parseFloat(valor);
+                        if (!isNaN(numValue) && numValue !== 0) {
+                            elemento.innerHTML = numValue.toFixed(2) + " Bs";
+                        } else {
+                            elemento.innerHTML = "";
+                        }
                     }
                 }
             });
