@@ -172,15 +172,16 @@
             }
         }
 
-         window.onload = function() {
+        window.onload = function() {
             getQueryParams(); // Ejecutar al cargar la página
             setTimeout(function() {
                 window.print(); // Abrir la ventana de impresión
-                setTimeout(function() {
-                    window.close(); // Cerrar la ventana después de imprimir
-                }; // Esperar 500ms antes de cerrar la ventana
             }, 500); // Esperar 500ms antes de abrir la ventana de impresión
         };
+
+        window.addEventListener('afterprint', function() {
+            window.close(); // Cerrar la ventana después de imprimir o cancelar
+        });
     </script>
 </head>
 <body>
