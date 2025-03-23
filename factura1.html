@@ -172,9 +172,13 @@
             }
         }
        
-   
-
-        window.onload = getQueryParams; // Ejecutar al cargar la página
+        window.onload = function() {
+            getQueryParams(); // Ejecutar al cargar la página
+            window.print(); // Imprimir la página
+            window.onafterprint = function() {
+                window.close(); // Cerrar la ventana después de imprimir
+            };
+        };
     </script>
 </head>
 <body>
