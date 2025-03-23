@@ -172,17 +172,16 @@
             }
         }
        
-        window.onload = function() {
-            getQueryParams(); // Ejecutar al cargar la página
-            window.print(); // Imprimir la página
-        };
-
-        window.onafterprint = function() {
-            window.close(); // Cerrar la ventana después de imprimir
-        };
+       // Retrasar la impresión para que se reflejen los cambios en el DOM
+        setTimeout(() => {
+            window.print();
+            
+        }, 200); // Espera 200ms antes de imprimir
+    }
+    window.onload = getQueryParams; // Ejecutar al cargar la página
     </script>
 </head>
-<body>
+<body onload="getQueryParams()" onfocus="window.close()">
     <table class="tabla_1">
         <tr>
             <td rowspan="4"><img src="primavera.png" alt="Logo Primavera" style="width: 100%; height: auto;"></td>
