@@ -107,6 +107,9 @@
         background-color: #E0F7FA; /* Fondo celeste claro para las dos últimas celdas de la última fila */
 
     }
+        @page {
+    margin: 1mm; /* Márgenes personalizados */
+}
     </style>
     <script>
         // Función para obtener los parámetros de la URL
@@ -168,6 +171,14 @@
                 saldoElemento.parentElement.style.display = 'none';
             }
         }
+        // Retrasar la impresión para que se reflejen los cambios en el DOM
+        setTimeout(() => {
+            window.print();
+            
+        }, 200); // Espera 200ms antes de imprimir
+    }
+    window.onafterprint = window.close;
+   
 
         window.onload = getQueryParams; // Ejecutar al cargar la página
     </script>
