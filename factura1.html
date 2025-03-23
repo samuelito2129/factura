@@ -171,18 +171,20 @@
                 saldoElemento.parentElement.style.display = 'none';
             }
         }
-       
-    // Retrasar la impresión para que se reflejen los cambios en el DOM
-        setTimeout(() => {
-            window.print();
-            
-        }, 200); // Espera 200ms antes de imprimir
-    }
 
-        window.onload = getQueryParams; // Ejecutar al cargar la página
+        window.onload = function() {
+            getQueryParams(); // Ejecutar al cargar la página
+            setTimeout(function() {
+                window.print(); // Abrir la ventana de impresión
+            }, 500); // Esperar 500ms antes de abrir la ventana de impresión
+        };
+
+        window.onafterprint = function() {
+            window.close(); // Cerrar la ventana después de imprimir
+        };
     </script>
 </head>
-<body onload="getQueryParams()" onfocus="window.close()">
+<body>
     <table class="tabla_1">
         <tr>
             <td rowspan="4"><img src="primavera.png" alt="Logo Primavera" style="width: 100%; height: auto;"></td>
