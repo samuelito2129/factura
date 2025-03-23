@@ -1,367 +1,207 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factura</title>
+    <title>BOLETO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            width: 17.3cm;
-            height: 25cm;
-            margin: 0 auto;
-            margin-top: 2cm;
+          width: 6.8cm;
+          height: 14cm;
+          margin: 0 auto;
+        }
+         .container {
+            display: flex;
+            font-size: 11.8px; 
             font-family: Arial, sans-serif;
-            line-height: 1.5; /* Aumenta el interlineado */
+            margin-top: 1px; /* Reduce el margen superior del párrafo */
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 2mm;
+        p {
+            margin-right: 1px; /* Espacio entre los párrafos */
+            margin-top: 24px;
+            line-height: 0; /* Controla el interlineado dentro del párrafo */
+            padding: 0;
         }
-        th, td {
-            border-collapse: collapse;
-            border: 0px solid black;
+        .centrar-texto {
+            text-align: center; /* Alinear el texto al centro */
+        }
+        h2 {
+            font-size: 13px;
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: -15px; /* Reduce el margen inferior del título */
+            line-height: 1; /* Controla la altura de línea dentro del título */
+            padding: 0px;
+           
+        }
+ table, th, td {
+   
+   border-collapse: collapse; /* Borde sólido de 1 píxel en color negro */
+   width: 100%;
+   
+   
+ }
+td {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    padding: 5px;
+    border: 0px solid #C0C0C0;
+  }
+  th {
+    font-size: 12px;
+    padding: 6px;
+    font-family: 'oswald', sans-serif;
+    background-color: #CECECE;
+    border: 1px solid
+  }
+  th:nth-child(1), td:nth-child(1) {
+            width: 39%; /* Primera columna ocupa el 50% */
         }
         
-        .tabla_3 td:nth-child(2), .tabla_3 td:nth-child(3), .tabla_3 td:nth-child(4) {
-            width: 2.5cm; /* Ancho de 4 cm para las columnas 2, 3 y 4 */
+        th:nth-child(2), td:nth-child(2) {
+            width: 42%; /* Segunda columna ocupa el 30% */
         }
-    h1{
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        margin-top: -20px;
-        margin-bottom: 10px;
-    }
-    th {
-        border-top : 1px solid lightgray;
-        border-bottom : 1px solid lightgray;
-        color: black;
-        font-weight: bold;
-       padding: 0.3cm;
-       font-size: 13px; 
-    }
-    .tabla_3 td{
-        padding: 0.13cm;
-        font-size: 12px;
-        border-bottom: 1px solid lightgray; /* Borde inferior en color gris claro */
-    }
-    .tabla_1 td{
-        font-size: 12px;
-        width: calc(100% / 4); /* Divide el ancho equitativamente entre las columnas */
         
-    }
-    .tabla_2 td{
-        font-size: 12px;
-        background-color: #E0F7FA; /* Fondo celeste claro */
-    }
-    .tabla_4 td{
-        font-size: 12px;
-        padding: 0.2cm;
-        
-    }
-    .tabla_1 td:nth-child(4) {
-        text-align: right; /* Alinea a la derecha el contenido de la cuarta columna */
-    }
-    .tabla_4 td:nth-child(3), .tabla_4 td:nth-child(4) {
-        text-align: right; /* Alinea a la derecha el contenido de la cuarta columna */
-    }
-    .tabla_2 td:nth-child(3), .tabla_2 td:nth-child(4), .tabla_3 td:nth-child(4) {
-       text-align: right;/* Aplica a la tercera y cuarta columna */
-    }
-    .tabla_3 td:nth-child(2), .tabla_3 td:nth-child(3) {
-        text-align: center;
-    }
-    .tabla_2 td:nth-child(1){
-        width: 3cm;
-        font-weight: bold;
-    }
-    .tabla_2 td:nth-child(3){
-      font-weight: bold;
-    }
-    .tabla_2 td:nth-child(2){
-        width: 6cm;
-    }
-    .tabla_3 th:nth-child(1) {
-        text-align: left; /* Alinea a la izquierda el contenido de la primera columna */
-    }
-    .tabla_2 {
-        border: 15px solid #E0F7FA; /* Borde externo de 5px y color celeste claro */
-    }
-    .tabla_4 tr:last-child td {
-        height: 1cm; /* Aumenta la altura de la última fila */
-    }
-    .tabla_3 {
-        border-left: 10px solid white;
-        border-right: 10px solid white;
-        border-bottom : 1px solid black;
-    }
-    .tabla_4  td:nth-child(3), td:nth-child(4) {
-            width: 3cm; /* Ancho de 4 cm para las columnas 2, 3 y 4 */
+        th:nth-child(3), td:nth-child(3) {
+            width: 19%; /* Tercera columna ocupa el 20% */
         }
-    .tabla_4{border-left: 10px solid white;
-        border-right: 10px solid white;}
-    .tabla_1{border-left: 10px solid white;
-            border-right: 10px solid white;}
-    .tabla_4 tr:last-child td:nth-child(3), .tabla_4 tr:last-child td:nth-child(4) {
-        background-color: #E0F7FA; /* Fondo celeste claro para las dos últimas celdas de la última fila */
-
-    }
-        @page {
-    margin: 1mm; /* Márgenes personalizados */
+ 
+        
+        tr:nth-child(n+3):nth-child(-n+13) td {
+    border-bottom: 1px solid #A9A9A9; /* Cambiar a línea discontinua para las primeras 3 filas */
+        }
+        tbody td {
+    border-right: 1px solid #A9A9A9;
+    border-left: 1px solid #A9A9A9;
+}
+td.especial {
+    border-bottom: 1px dashed #C0C0C0;
 }
     </style>
-    <script>
+     <script>
         // Función para obtener los parámetros de la URL
         function getQueryParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const campos = ["Nombre","apellido", "direccion","contacto","ndeventa", "Fecha","estado","cantbombon", "imp_bombon", "cant_granizado", "imp_granizado", "cant_arbolito", "imp_arbolito", "cant_gemelo", "imp_gemelo", 
-                            "imp_agua", "cant_tamarindo", "imp_tamarindo","cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante", 
-                            "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino", 
-                            "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento", 
-                            "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo","motivo"];
-
-            // Rellenar los campos si existen en los parámetros de la URL
-            campos.forEach(campo => {
-                const valor = urlParams.get(campo);
-                if (valor !== null) {
-                    const elemento = document.getElementById(campo);
-                    // Verificar si el valor comienza con "!"
-                    if (valor.startsWith("!")) {
-                        const cleanValue = valor.slice(1); // Remover "!"
-                        elemento.innerHTML = `<span class="red">!</span>${cleanValue}`;
-                    } else {
-                        // Ajustar valores numéricos solo para tabla_3, tabla_4 y saldo
-                        if (campo.startsWith("imp_") || campo === "subtotal" || campo === "descuento" || campo === "recargo" || campo === "pagar" || campo === "saldo") {
-                            const numValue = parseFloat(valor);
-                            if (!isNaN(numValue) && numValue !== 0) {
-                                elemento.innerHTML = numValue.toFixed(2) + " Bs";
-                            } else {
-                                elemento.innerHTML = "";
-                            }
-                        } else {
-                            elemento.innerHTML = valor;
-                        }
-                    }
-                }
-            });
-
-            // Ocultar filas en tabla_3 si la cantidad es cero o está vacía
-            const filasTabla3 = document.querySelectorAll('.tabla_3 tbody tr');
-            filasTabla3.forEach(fila => {
-                const cantidad = fila.querySelector('td:nth-child(2)').innerText;
-                if (!cantidad || parseFloat(cantidad) === 0) {
-                    fila.style.display = 'none';
-                }
-            });
-
-            // Ocultar filas en tabla_4 si la columna 4 está vacía o tiene valor cero
-            const filasTabla4 = document.querySelectorAll('.tabla_4 tbody tr');
-            filasTabla4.forEach(fila => {
-                const valorColumna4 = fila.querySelector('td:nth-child(4)').innerText;
-                if (!valorColumna4 || parseFloat(valorColumna4) === 0) {
-                    fila.style.display = 'none';
-                }
-            });
-
-            // Ocultar <p> contenedor si el saldo es cero o está vacío
-            const saldoElemento = document.getElementById('saldo');
-            const saldoValor = saldoElemento.innerText;
-            if (!saldoValor || parseFloat(saldoValor) === 0) {
-                saldoElemento.parentElement.style.display = 'none';
+          const urlParams = new URLSearchParams(window.location.search);
+          const campos = ["Nombre", "Fecha", "Hora", "cant_bombon",  "cant_granizado", "cant_arbolito", "cant_agua", "cant_cono", "cant_bombonato", "cant_crocante", "cant_chococo", "cant_sandwich", "cant_vasotapa", "cant_festino", "cant_canaleado", "cant_wafer", "valor"];
+    
+          // Rellenar los campos si existen en los parámetros de la URL
+          campos.forEach(campo => {
+            const valor = urlParams.get(campo);
+            if (valor !== null) {
+              document.getElementById(campo).innerHTML = valor;
             }
+          });
+         // Ejecutar la impresión después de cargar los parámetros
+       window.print();
+        
+    
+    
         }
-
-        window.onload = function() {
-            getQueryParams(); // Ejecutar al cargar la página
-            setTimeout(function() {
-                window.print(); // Abrir la ventana de impresión
-            }, 500); // Esperar 500ms antes de abrir la ventana de impresión
-        };
-
-        onfocus="window.close()"
-        });
-    </script>
+    
+        window.onload = getQueryParams; // Ejecutar al cargar la página
+      </script>
 </head>
-<body>
-    <table class="tabla_1">
-        <tr>
-            <td rowspan="4"><img src="primavera.png" alt="Logo Primavera" style="width: 100%; height: auto;"></td>
-            <td></td>
-            <td></td>
-            <td rowspan="4">
-               <strong style="font-size: 14px;">Helados Primavera</strong><br>
-                Avenida paurito N° 415<br>
-                Cotoca-Santa Cruz-Bolivia<br>
-                73196102-72627865
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-    <h1>NOTA DE VENTA</h1>
-    <table class="tabla_2">
-        <tr>
-            <td>Nombre:</td>
-            <td><span ID="Nombre"></span> <span id="apellido"></span></td>
-            <td>Nota de Venta N°:</td>
-            <td ID="ndeventa"></td>
-        </tr>
-        <tr>
-            <td>Direccion:</td>
-            <td id="direccion"></td>
-            <td>Fecha de Envio:</td>
-            <td id="Fecha"></td>
-        </tr>
-        <tr>
-            <td>Contacto:</td>
-            <td id="contacto"></td>
-            <td>Estado:</td>
-            <td id="estado"></td>
-        </tr>
-       
-    </table>
+<body onload="getQueryParams()" onfocus="window.close()">
+    <div class="centrar-texto">
+        <p style="font-size: 14px;font-family: 'Roboto', sans-serif;  margin-bottom: -10px;"><b>HELADERÍA PRIMAVERA</b></p>
+         <p style="font-size: 10px;font-family: Arial, sans-serif;line-height: 0;">TELÉFONO: 73196102 - 72627865</p> 
+         <h2>TICKET DE ENTREGA</h2>
+      </div>
 
-    <table class="tabla_3">
+      <div class="container">    
+        <p>Para:</p>
+        <p id=Nombre></p>&nbsp;&nbsp;
+        <p>Fecha:</p>
+        <p id=Fecha></p>&nbsp;&nbsp;
+        <p>H:</p>
+        <p id="Hora"></p>
+    </div> 
+    <table>
         <thead>
             <tr>
                 <th>PRODUCTO</th>
                 <th>CANTIDAD</th>
-                <th>PRECIO</th>
-                <th>SUBTOTAL</th>
+                <th>SOBRA</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Bombon</td>
-                <td id="cantbombon"></td>
-                <td>1.00 Bs</td>
-                <td id="imp_bombon"></td>
+                <td>Bombón (1)</td>
+                <td class="especial" id="cant_bombon"></td>
+                <td class="especial"></td>
             </tr>
             <tr>
-                <td>Granizado</td>
-                <td id="cant_granizado"></td>
-                <td>1.00 Bs</td>
-                <td id="imp_granizado"></td>
+                <td>Granizado (1)</td>
+                <td class="especial" id="cant_granizado"></td>
+                <td class="especial"></td>
             </tr>
             <tr>
-                <td>Arbolito</td>
+                <td>Arbolito (1)</td>
                 <td id="cant_arbolito"></td>
-                <td>1.00 Bs</td>
-                <td id="imp_arbolito"></td>
+                <td></td>
+            </tr>
+           
+            <tr>
+                <td>De_Agua (0.6)</td>
+                <td id="cant_agua"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Gemelo</td>
-                <td id="cant_gemelo"></td>
-                <td>0.60 Bs</td>
-                <td id="imp_gemelo"></td>
-            </tr>
-            <tr>
-                <td>Tamarindo</td>
-                <td id="cant_tamarindo"></td>
-                <td>0.60 Bs</td>
-                <td id="imp_tamarindo"></td>
-            </tr>
-            <tr>
-                <td>Picole de Agua</td>
-                <td id="cant_colores"></td>
-                <td>0.60 Bs</td>
-                <td id="imp_agua"></td>
-            </tr>
-            <tr>
-                <td>Wafer</td>
+                <td>Wafer (1.2)</td>
                 <td id="cant_wafer"></td>
-                <td>1.20 Bs</td>
-                <td id="imp_wafer"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Vasito Canaleado</td>
+                <td style="font-family:Arial Narrow Bold', sans-serif">V_Canaleado(1.1)</td>
                 <td id="cant_canaleado"></td>
-                <td>1.10 Bs</td>
-                <td id="imp_canaleado"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Vaso con tapa</td>
-                <td id="cant_vasotapa"></td>
-                <td>1.50 Bs</td>
-                <td id="imp_vasotapa"></td>
-            </tr>
-            <tr>
-                <td>Cono</td>
+                <td>Cono (2)</td>
                 <td id="cant_cono"></td>
-                <td>2.00 Bs</td>
-                <td id="imp_cono"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Bombonato</td>
-                <td id="cant_bombonato"></td>
-                <td>2.00 Bs</td>
-                <td id="imp_bombonato"></td>
+                <td>Vaso_tapa (1.5)</td>
+                <td id="cant_vasotapa"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Crocante</td>
+                <td>Crocante (2.5)</td>
                 <td id="cant_crocante"></td>
-                <td>2.50 Bs</td>
-                <td id="imp_crocante"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Chococo</td>
+                <td>Chococo (2.5)</td>
                 <td id="cant_chococo"></td>
-                <td>2.50 Bs</td>
-                <td id="imp_chococo"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Sandwich</td>
+                <td>Sanwich (2.5)</td>
                 <td id="cant_sandwich"></td>
-                <td>2.50 Bs</td>
-                <td id="imp_sandwich"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Festino</td>
-                <td id="cant_festino"></td>
-                <td>3.50 Bs</td>
-                <td id="imp_festino"></td>
+                <td>Bombonato (2)</td>
+                <td id="cant_bombonato"></td>
+                <td></td>
             </tr>
+            <tr>
+                <td>Festino (3.5)</td>
+                <td id="cant_festino"></td>
+                <td></td>
+            </tr>
+           
+            
         </tbody>
-    </table>
-
-    <table class="tabla_4">
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Total Parcial:</td>
-            <td id="subtotal"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Descuento:</td>
-            <td id="descuento"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td style="text-align:right;"></td>
-            <td><span id="motivo"></span>Recargo:</td>
-            <td id="recargo"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td style="font-size: 13px;">TOTAL A PAGAR:</td>
-            <td style="font-size: 18px; font-weight: bold;" id="pagar"></td>
-        </tr>
-        
-    </table>
-     <p style="font-size: 13px">Saldo Deudor de: <strong id="saldo"><span></span></strong></p>    
+    </table> 
+   <div class="centrar-texto">
+    <p style="font-size: 14px;font-family: Arial, sans-serif;margin-top: 8px;">Valor:<span id="valor"><strong> </strong></span></p>
+    <p style="font-size: 11px;font-family: Arial, sans-serif;margin-top: 5px;">&#128073; Por favor revise este ticket antes de salir </p>
+    <p style="font-size: 11px;font-family: Arial, sans-serif;margin-top: 12px;">&#128522; QUE TENGA BUENA VENTA &#128522; </p>
+    
+   </div>
 </body>
 </html>
