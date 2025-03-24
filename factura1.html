@@ -56,6 +56,7 @@
         .tabla_4 td{
             font-size: 12px;
             padding: 0.2cm;
+            background-color: #E0F7FA; /* Fondo celeste claro */
         }
         .tabla_1 td:nth-child(4) {
             text-align: right; /* Alinea a la derecha el contenido de la cuarta columna */
@@ -112,6 +113,9 @@
             }
             .tabla_4 tr:last-child td:nth-child(3), .tabla_4 tr:last-child td:nth-child(4) {
                 background-color: #E0F7FA !important; /* Fondo celeste claro para las dos últimas celdas de la última fila */
+            }
+            body {
+                margin: 0; /* Elimina márgenes en la impresión */
             }
         }
     </style>
@@ -174,7 +178,7 @@
                 saldoElemento.parentElement.style.display = 'none';
             }
         }
-       
+
         window.onload = function() {
             getQueryParams();
             window.print();
@@ -227,7 +231,6 @@
             <td>Estado:</td>
             <td id="estado"></td>
         </tr>
-       
     </table>
 
     <table class="tabla_3">
