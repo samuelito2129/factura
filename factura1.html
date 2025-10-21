@@ -106,6 +106,16 @@
     .tabla_4 tr:last-child td:nth-child(3), .tabla_4 tr:last-child td:nth-child(4) {
         background-color: #E0F7FA; /* Fondo celeste claro para las dos últimas celdas de la última fila */
     }
+     .tabla_5 {
+        border-left: 0px solid white;
+        border-right: 0px solid white;
+        width: 12cm;
+        margin:0 auto;
+        font-size: 12px;
+     }
+      .tabla_5 td:nth-child(4) {
+        text-align: right; /* Alinea a la derecha el contenido de la cuarta columna */
+    }
         @page {
     margin: 1mm; /* Márgenes personalizados */
 }
@@ -118,7 +128,7 @@
                             "imp_agua", "cant_tamarindo", "imp_tamarindo","cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante", 
                             "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino", 
                             "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento", 
-                            "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo","motivo"];
+                            "recargo", "pagar", "saldo","motivo","hist1_fecha","hist1_numero","hist1_pagar","hist1_estado","hist2_fecha","hist2_numero", "hist2_pagar","hist2_estado", "hist3_fecha","hist3_numero","hist3_pagar","hist3_estado",];
             // Rellenar los campos si existen en los parámetros de la URL
             campos.forEach(campo => {
                 const valor = urlParams.get(campo);
@@ -233,31 +243,31 @@
             <tr>
                 <td>Bombon</td>
                 <td id="cantbombon"></td>
-                <td>1.00 Bs</td>
+                <td>1.30 Bs</td>
                 <td id="imp_bombon"></td>
             </tr>
             <tr>
                 <td>Granizado</td>
                 <td id="cant_granizado"></td>
-                <td>1.00 Bs</td>
+                <td>1.30 Bs</td>
                 <td id="imp_granizado"></td>
             </tr>
             <tr>
                 <td>Arbolito</td>
                 <td id="cant_arbolito"></td>
-                <td>1.00 Bs</td>
+                <td>1.30 Bs</td>
                 <td id="imp_arbolito"></td>
             </tr>
             <tr>
                 <td>Gemelo</td>
                 <td id="cant_gemelo"></td>
-                <td>0.60 Bs</td>
+                <td>0.80 Bs</td>
                 <td id="imp_gemelo"></td>
             </tr>
             <tr>
                 <td>Tamarindo</td>
                 <td id="cant_tamarindo"></td>
-                <td>0.60 Bs</td>
+                <td>0.80 Bs</td>
                 <td id="imp_tamarindo"></td>
             </tr>
             <tr>
@@ -269,55 +279,55 @@
             <tr>
                 <td>Wafer</td>
                 <td id="cant_wafer"></td>
-                <td>1.20 Bs</td>
+                <td>1.50 Bs</td>
                 <td id="imp_wafer"></td>
             </tr>
             <tr>
                 <td>Vasito Canaleado</td>
                 <td id="cant_canaleado"></td>
-                <td>1.10 Bs</td>
+                <td>1.40 Bs</td>
                 <td id="imp_canaleado"></td>
             </tr>
             <tr>
                 <td>Vaso con tapa</td>
                 <td id="cant_vasotapa"></td>
-                <td>1.50 Bs</td>
+                <td>2.00 Bs</td>
                 <td id="imp_vasotapa"></td>
             </tr>
             <tr>
                 <td>Cono</td>
                 <td id="cant_cono"></td>
-                <td>2.00 Bs</td>
+                <td>2.50 Bs</td>
                 <td id="imp_cono"></td>
             </tr>
             <tr>
                 <td>Bombonato</td>
                 <td id="cant_bombonato"></td>
-                <td>2.00 Bs</td>
+                <td>2.50 Bs</td>
                 <td id="imp_bombonato"></td>
             </tr>
             <tr>
                 <td>Crocante</td>
                 <td id="cant_crocante"></td>
-                <td>2.50 Bs</td>
+                <td>3.00 Bs</td>
                 <td id="imp_crocante"></td>
             </tr>
             <tr>
                 <td>Chococo</td>
                 <td id="cant_chococo"></td>
-                <td>2.50 Bs</td>
+                <td>3.00 Bs</td>
                 <td id="imp_chococo"></td>
             </tr>
             <tr>
                 <td>Sandwich</td>
                 <td id="cant_sandwich"></td>
-                <td>2.50 Bs</td>
+                <td>3.50 Bs</td>
                 <td id="imp_sandwich"></td>
             </tr>
             <tr>
                 <td>Festino</td>
                 <td id="cant_festino"></td>
-                <td>3.50 Bs</td>
+                <td>4.00 Bs</td>
                 <td id="imp_festino"></td>
             </tr>
         </tbody>
@@ -349,6 +359,28 @@
         </tr>
         
     </table>
-     <p style="font-size: 13px">Saldo Deudor de: <strong id="saldo"><span></span></strong></p>    
+     <p style="font-size: 13px">Saldo Deuda de: <strong id="saldo"><span></span></strong></p> 
+     <p style="text-align: center;">Historial</p>
+
+     <table class="tabla_5">
+     <tr>
+       <td id="hist1_fecha"></td>
+       <td id="hist1_numero"></td> 
+       <td id="hist1_pagar"></td> 
+       <td id="hist1_estado"></td>  
+     </tr>
+     <tr>
+       <td id="hist2_fecha"></td>
+       <td id="hist2_numero"></td> 
+       <td id="hist2_pagar"></td> 
+       <td id="hist2_estado"></td>  
+     </tr>
+     <tr>
+       <td id="hist3_fecha"></td>
+       <td id="hist3_numero"></td> 
+       <td id="hist3_pagar"></td> 
+       <td id="hist3_estado"></td>  
+     </tr>
+     </table>
 </body>
 </html>
