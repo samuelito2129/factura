@@ -123,6 +123,13 @@
 }
     </style>
     <script>
+        // Función para dar formato moneda en Bolivianos con 2 decimales
+        function formatBs(valor) {
+            const num = parseFloat(String(valor).replace(/[^0-9.-]+/g, ''));
+            if (isNaN(num)) return '';
+            return num.toFixed(2) + ' Bs';
+        }
+
         // Función para obtener los parámetros de la URL
         function getQueryParams() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -145,10 +152,14 @@
                         if (campo.startsWith("imp_") || campo === "subtotal" || campo === "descuento" || campo === "recargo" || campo === "pagar" || campo === "saldo") {
                             const numValue = parseFloat(valor);
                             if (!isNaN(numValue) && numValue !== 0) {
-                                elemento.innerHTML = numValue.toFixed(2) + " Bs";
+                                elemento.innerHTML = formatBs(numValue);
                             } else {
                                 elemento.innerHTML = "";
                             }
+                        } else if (campo === 'hist1_pagar' || campo === 'hist2_pagar' || campo === 'hist3_pagar') {
+                            // Formatear pagos históricos también
+                            const numValue = parseFloat(valor);
+                            elemento.innerHTML = (!isNaN(numValue) && numValue !== 0) ? formatBs(numValue) : "";
                         } else {
                             elemento.innerHTML = valor;
                         }
