@@ -7,9 +7,9 @@
     <style>
         body {
             width: 17.3cm;
-            height: 25cm;
+            height: 26cm;
             margin: 0 auto;
-            margin-top: 2cm;
+            margin-top: 1.5cm;
             font-family: Arial, sans-serif;
             line-height: 1.5; /* Aumenta el interlineado */
         }
@@ -42,7 +42,7 @@
        font-size: 13px; 
     }
     .tabla_3 td{
-        padding: 0.13cm;
+        padding: 0.10cm;
         font-size: 12px;
         border-bottom: 1px solid lightgray; /* Borde inferior en color gris claro */
     }
@@ -111,7 +111,9 @@
         border-right: 0px solid white;
         width: 12cm;
         margin:0 auto;
-        font-size: 12px;
+        font-size: 11px;
+        margin-top: 0px;
+    
      }
       .tabla_5 td:nth-child(4) {
         text-align: right; /* Alinea a la derecha el contenido de la cuarta columna */
@@ -189,7 +191,7 @@
             <td></td>
             <td></td>
             <td rowspan="4">
-               <strong style="font-size: 14px;">Helados Primavera</strong><br>
+               <strong style="font-size: 14px;">Helados Artesanales</strong><br>
                 Avenida paurito N° 415<br>
                 Cotoca-Santa Cruz-Bolivia<br>
                 73196102-72627865
@@ -347,8 +349,8 @@
         </tr>
         <tr>
             <td></td>
-            <td style="text-align:right;"></td>
-            <td><span id="motivo"></span>Recargo:</td>
+            <td id="motivo" style="text-align:right;"></td>
+            <td>Recargo:</td>
             <td id="recargo"></td>
         </tr>
         <tr>
@@ -360,22 +362,23 @@
         
     </table>
      <p style="font-size: 13px">Saldo Deuda de: <strong id="saldo"><span></span></strong></p> 
-     <p style="text-align: center;">Historial</p>
+     <div style="width: 100%; height: 3px; background-color:#E0F7FA; margin: 10px 0;margin-top: 35px;"></div>
+     <p style="text-align: center; margin-bottom: 0px;font-size: 12px;margin-top: -7px;">Anteriores Envios:</p>
 
      <table class="tabla_5">
-     <tr>
+     <tr style="color:rgba(0, 0, 0, 0.777);">
        <td id="hist1_fecha"></td>
        <td id="hist1_numero"></td> 
        <td id="hist1_pagar"></td> 
        <td id="hist1_estado"></td>  
      </tr>
-     <tr>
+     <tr style="color: gray;">
        <td id="hist2_fecha"></td>
        <td id="hist2_numero"></td> 
        <td id="hist2_pagar"></td> 
        <td id="hist2_estado"></td>  
      </tr>
-     <tr>
+     <tr style="color:darkgray;">
        <td id="hist3_fecha"></td>
        <td id="hist3_numero"></td> 
        <td id="hist3_pagar"></td> 
