@@ -10,6 +10,7 @@
             height: 26cm;
             margin: 0 auto;
             margin-top: 1.5cm;
+            position: relative; /* necesario para posicionar el contenedor anclado */
             font-family: Arial, sans-serif;
             line-height: 1.5; /* Aumenta el interlineado */
         }
@@ -117,6 +118,22 @@
      }
       .tabla_5 td:nth-child(4) {
         text-align: right; /* Alinea a la derecha el contenido de la cuarta columna */
+    }
+    /* Contenedor fijo que ocupa los últimos 3cm del body y mantiene el <p> y la tabla_5 en esa área */
+    .anteriores-fixed {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3cm; /* espacio reservado en la parte inferior */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding-top: 0.15cm; /* pequeño espacio desde la línea celeste */
+        background: transparent;
+        overflow: hidden;
     }
         @page {
     margin: 1mm; /* Márgenes personalizados */
@@ -373,10 +390,11 @@
         
     </table>
      <p style="font-size: 13px">Saldo Deuda de: <strong id="saldo"><span></span></strong></p> 
-     <div style="width: 100%; height: 3px; background-color:#E0F7FA; margin: 10px 0;margin-top: 35px;"></div>
-     <p style="text-align: center; margin-bottom: 0px;font-size: 12px;margin-top: -7px;">Anteriores Envios:</p>
+             <div class="anteriores-fixed">
+                 <div style="width: 100%; height: 3px; background-color:#E0F7FA; margin: 10px 0; margin-top: 0.2cm;"></div>
+                 <p style="text-align: center; margin-bottom: 0px;font-size: 12px;margin-top: -7px;">Anteriores Envios:</p>
 
-     <table class="tabla_5">
+                 <table class="tabla_5">
      <tr style="color:rgba(0, 0, 0, 0.777);">
        <td id="hist1_fecha"></td>
        <td id="hist1_numero"></td> 
@@ -395,6 +413,7 @@
        <td id="hist3_pagar"></td> 
        <td id="hist3_estado"></td>  
      </tr>
-     </table>
+             </table>
+         </div>
 </body>
 </html>
