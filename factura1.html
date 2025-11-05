@@ -135,6 +135,12 @@
         background: transparent;
         overflow: hidden;
     }
+        .fijar_posicion {
+        position: absolute;
+        bottom: 0; /* Ajusta según sea necesario */
+        height: 4.5cm;
+        
+    }
         @page {
     margin: 1mm; /* Márgenes personalizados */
 }
@@ -389,7 +395,8 @@
         </tr>
         
     </table>
-     <p style="font-size: 13px">Saldo Deuda de: <strong id="saldo"><span></span></strong></p> 
+      <div class="fijar_posicion">
+     <p style="font-size: 13px">Saldo Deuda de: <strong id="saldo"><span></span></strong></p> </div>
              <div class="anteriores-fixed">
                  <div style="width: 100%; height: 3px; background-color:#E0F7FA; margin: 10px 0; margin-top: 0.2cm;"></div>
                  <p style="text-align: center; margin-bottom: 0px;font-size: 12px;margin-top: -7px;">Anteriores Envios:</p>
@@ -417,4 +424,5 @@
          </div>
 </body>
 </html>
+
 
