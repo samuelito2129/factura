@@ -139,6 +139,8 @@
         position: absolute;
         bottom: 0; /* Ajusta según sea necesario */
         height: 4.5cm;
+        font-size: 13px;
+        line-height: 4px;
         
     }
         @page {
@@ -160,7 +162,7 @@
                             "imp_agua", "cant_tamarindo", "imp_tamarindo","cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante", 
                             "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino", 
                             "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento", 
-                            "recargo", "pagar", "saldo","motivo","hist1_fecha","hist1_numero","hist1_pagar","hist1_estado","hist2_fecha","hist2_numero", "hist2_pagar","hist2_estado", "hist3_fecha","hist3_numero","hist3_pagar","hist3_estado",];
+                            "recargo", "pagar", "saldo","nota","motivo","hist1_fecha","hist1_numero","hist1_pagar","hist1_estado","hist2_fecha","hist2_numero", "hist2_pagar","hist2_estado", "hist3_fecha","hist3_numero","hist3_pagar","hist3_estado",];
             // Rellenar los campos si existen en los parámetros de la URL
             campos.forEach(campo => {
                 const valor = urlParams.get(campo);
@@ -210,6 +212,12 @@
             const saldoValor = saldoElemento.innerText;
             if (!saldoValor || parseFloat(saldoValor) === 0) {
                 saldoElemento.parentElement.style.display = 'none';
+            }
+            // Ocultar <p> contenedor si el saldo es cero o está vacío
+            const notaElemento = document.getElementById('nota');
+            const notaValor = notaElemento.innerText;
+            if (!notaValor || parseFloat(notaValor) === 0) {
+                notaElemento.parentElement.style.display = 'none';
             }
         }
        
@@ -396,7 +404,9 @@
         
     </table>
       <div class="fijar_posicion">
-     <p style="font-size: 13px">Saldo Deuda de: <strong id="saldo"><span></span></strong></p> </div>
+     <p>Saldos: <strong id="saldo"><span></span></strong></p> 
+    <p>Notas: <span id="nota"></span></p>
+    </div>
              <div class="anteriores-fixed">
                  <div style="width: 100%; height: 3px; background-color:#E0F7FA; margin: 10px 0; margin-top: 0.2cm;"></div>
                  <p style="text-align: center; margin-bottom: 0px;font-size: 12px;margin-top: -7px;">Anteriores Envios:</p>
@@ -424,5 +434,6 @@
          </div>
 </body>
 </html>
+
 
 
